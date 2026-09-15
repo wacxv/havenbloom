@@ -132,7 +132,14 @@ The backend exposes REST resources under `/api`, uses Socket.IO for messaging an
 - A MongoDB database
 - SMTP credentials for password-reset OTPs
 - An MQTT broker if live device readings are being tested
-- Python 3.10 or later and Bluetooth support for the monitoring GUI
+- A Windows laptop or desktop with Bluetooth support for the monitoring GUI
+- Python 3.10 or later if running the GUI source files instead of the packaged executable
+
+The HavenBloom web application can be opened in a modern browser, including on mobile devices. Direct BLE device connection is handled by the separate Windows desktop GUI because the packaged GUI executable communicates with the heart-rate devices over Bluetooth and forwards readings through MQTT.
+
+### Mobile Access and Live Monitoring
+
+Users can open HavenBloom on a mobile device to view previously recorded heart-rate readings and other health information. However, mobile-only use does not provide live heart-rate monitoring in the current implementation. Live readings require a Windows laptop or desktop running the Doppler or smartwatch GUI executable. The GUI connects to the BLE device and forwards the readings through MQTT and the backend, after which authorized users can view the live data from the web application on either a desktop or mobile browser.
 
 ## Local Setup
 
@@ -164,7 +171,9 @@ The frontend currently uses the deployed API URL in several components and falls
 
 ### 3. Monitoring GUI
 
-In a third terminal, install the Python dependencies and start one of the BLE monitors:
+For the packaged Windows version, launch the executable inside `DOPPLER-GUI/` or `SMARTWATCH-GUI/` on a Bluetooth-enabled laptop or desktop. The packaged GUI is the intended way to connect the monitoring devices.
+
+For development, install the Python dependencies in a third terminal and run one of the source monitors:
 
 ```bash
 cd GUI
