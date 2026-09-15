@@ -1,0 +1,12 @@
+.main-layout {
+  display: flex;
+}
+
+.page-content {
+  margin-left: 11vh; /* Width of collapsed header - adjust to match header width */
+  width: calc(100% - 11vh);
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: -2vh;
+}

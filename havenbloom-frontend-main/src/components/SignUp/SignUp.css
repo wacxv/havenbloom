@@ -1,0 +1,371 @@
+/* Completely unique class names for SignUp */
+.auth-signup-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0%;
+    position: relative;
+}
+
+.auth-signup-inner {
+    width: 100%;
+}
+
+.auth-signup-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.auth-signup-top-section {
+    display: flex;
+    justify-content: right;
+    padding: 0;
+    width: auto;
+}
+
+.auth-signup-bottom-section {
+    display: flex;
+    justify-content: left;
+    padding: 0;
+    width: auto;
+}
+
+.auth-signup-card {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2F1847;
+    border-radius: 30px;
+    height: auto;
+    min-height: auto;
+    width: 380px;
+    padding: 40px 30px;
+    overflow-y: auto;
+    max-height: 90vh;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+}
+
+.auth-signup-card-body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.auth-signup-card-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    gap: 20px;
+}
+
+.auth-signup-card-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.auth-signup-card-header h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.auth-signup-card-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.auth-signup-card-footer p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.auth-signup-card-footer a {
+    color: #D67AB1;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.auth-signup-img1 {
+    display: flex;
+    justify-content: center;
+    height: 62vh;
+    margin-top: -17vh;
+    margin-right: 120vh;
+    width: auto;
+}
+
+.auth-signup-img-container-1 {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.auth-signup-img2 {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 1vh;
+    margin-left: 120vh;
+    width: auto;
+}
+
+.auth-signup-img-container-2 {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.auth-signup-form-group {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.auth-signup-form-group label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: white;
+    text-align: left;
+}
+
+.auth-signup-form-group input {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    font-size: 16px;
+    width: calc(100% - 30px);
+    outline: none;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.auth-signup-form-group input:hover {
+    background-color: rgba(214, 122, 177, 0.15);
+    cursor: text;
+}
+
+.auth-signup-form-group input:focus {
+    background-color: rgba(214, 122, 177, 0.2);
+}
+
+.auth-signup-form-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    margin: 0;
+    margin-top: 2px;
+}
+
+.auth-signup-button {
+    background-color: #D67AB1;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    width: auto;
+    min-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-signup-button:hover {
+    background-color: #e086bc;
+}
+
+.auth-signup-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.auth-signup-back-button {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.auth-signup-forgot-container {
+    display: flex;
+    justify-content: right;
+    font-size: 2vh;
+    color: white;
+    text-decoration: none;
+}
+
+/* Select and textarea styling */
+.auth-signup-form-group select {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: white;
+    appearance: none;
+    border-radius: 4px;
+    background-position: right 15px center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.auth-signup-form-group select:hover {
+    background-color: rgba(214, 122, 177, 0.15);
+    cursor: pointer;
+}
+
+.auth-signup-form-group select:focus {
+    background-color: rgba(214, 122, 177, 0.2);
+}
+
+.auth-signup-form-group select option {
+    background-color: #2F1847;
+    color: white;
+    padding: 12px;
+}
+
+.auth-signup-form-group textarea {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    font-size: 16px;
+    width: calc(100% - 30px);
+    outline: none;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    resize: none;
+    border-radius: 4px;
+    min-height: 80px;
+}
+
+.auth-signup-form-group textarea:hover {
+    background-color: rgba(214, 122, 177, 0.15);
+    cursor: text;
+}
+
+.auth-signup-form-group textarea:focus {
+    background-color: rgba(214, 122, 177, 0.2);
+}
+
+.auth-signup-form-message {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    color: #ff6b6b;
+}
+
+/* Progress indicator styles */
+.auth-signup-progress-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.auth-signup-progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.auth-signup-progress-dot.active {
+    background-color: #D67AB1;
+}
+
+.auth-signup-name-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.auth-signup-name-container .auth-signup-form-group {
+    width: 48%;
+}
+
+.auth-signup-name-container .auth-signup-form-group input {
+    width: calc(100% - 30px);
+}
+
+.auth-signup-name-container .auth-signup-form-group label {
+    text-align: left;
+}
+
+.auth-signup-error-message {
+    background-color: rgba(255, 59, 48, 0.15);
+    color: #ff6b6b;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+    border-left: 3px solid #ff3b30;
+}
+
+/* Add or update this block */
+.back-btn {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    min-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #b39ddb;
+    color: white;
+}
+
+/* Add to SignUp.css */
+.signup-success-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(47, 24, 71, 0.85); /* Use theme color with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.signup-success-modal-content {
+    background: #2F1847; /* Theme background */
+    padding: 2rem 3rem;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 2px 24px rgba(214, 122, 177, 0.25);
+    color: #fff;
+    border: 2px solid #D67AB1;
+    min-width: 320px;
+}
+.signup-success-modal-content h3 {
+    color: #D67AB1;
+    margin-bottom: 0.5em;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+.signup-success-modal-content p {
+    color: #fff;
+    font-size: 1.1em;
+    margin: 0;
+}
+

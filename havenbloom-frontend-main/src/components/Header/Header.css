@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+#header-outer {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    background-color: #222639;
+    z-index: 1000;
+    height: 100vh; /* Full viewport height */
+    top: 0;
+    left: 0;
+    margin: 0; /* Remove negative margins */
+    border-right: 1px solid rgba(214, 122, 177, 0.2); /* Only right border */
+    transition: width 0.3s ease;
+    width: 240px;
+    overflow: hidden;
+}
+
+#header-outer.collapsed {
+    width: 70px; /* Fixed width instead of vh-based */
+}
+
+#header-inner {
+    height: 100%; /* Full height */
+    padding: 20px; /* Fixed padding in pixels */
+    width: 100%;
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+
+#header-container {
+    display: flex;
+    gap: 24px; /* Changed from 3vh */
+    flex-direction: column;
+    height: calc(100% - 40px);  /* Changed from 95vh */
+    justify-content: space-between;
+}   
+
+#top-section {
+    display: flex;
+    padding: 0;
+    width: auto;
+    flex-direction: column;
+    align-items: left;
+    gap: 24px; /* Changed from 3vh */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    color: #fff;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.menu-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Changed from 2.5vh */
+    width: auto;
+    color: #fff;
+    gap: 16px; /* Changed from 2vh */
+    max-width: 200px;
+    transition: opacity 0.3s ease, max-width 0.3s ease, margin 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Changed from 2.5vh */
+    width: 48px;  /* Changed from 6vh */
+    height: 48px;  /* Changed from 6vh */
+    color: #fff;
+    gap: 16px; /* Changed from 2vh */
+}
+
+.nav-icon {
+    height: 24px; /* Changed from 4vh */
+    width: auto;
+    color: #fff;
+}
+
+#bottom-section {
+    display: flex;
+    padding: 0;
+    width: auto;
+    flex-direction: column;
+    align-items: left;
+    gap: 24px; /* Changed from 3vh */
+    margin-bottom: 16px; /* Changed from 2vh */
+}
+
+/* Collapsed state: hide text smoothly */
+#header-outer.collapsed .menu-text {
+    opacity: 0;
+    max-width: 0;
+    margin-left: 0;
+}
+
+/* Expanded state: show text smoothly */
+#header-outer.expanded .menu-text {
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 8px; /* Changed from 1vh */
+}
+
+/* Add cursor pointer to menu items */
+/* .menu-item {
+    cursor: pointer;
+} */
+
+/* Subtle hover effect with color transition */
+.hover-effect {
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+/* Fix hover effect indicator */
+.hover-effect::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Inside the container */
+    top: 50%;
+    height: 0;
+    width: 3px;
+    background: #D67AB1; /* Match brand color */
+    border-radius: 2px;
+    transform: translateY(-50%);
+    transition: height 0.2s ease;
+    opacity: 0;
+}
+
+.hover-effect:hover {
+    background-color: rgba(214, 122, 177, 0.1); /* Subtle background highlight */
+}
+
+/* Subtle icon glow effect */
+.hover-effect:hover .nav-icon {
+    filter: drop-shadow(0 0 2px rgba(214, 122, 177, 0.5));
+    color: #D67AB1;
+}
+
+/* Fix text shadow on hover to use brand color */
+.hover-effect:hover .menu-text {
+    text-shadow: 0 0 8px rgba(214, 122, 177, 0.3);
+}
+
+.logo-container {
+    font-family: 'Poppins', sans-serif;
+    color: #D67AB1;
+    font-size: 24px; /* Use fixed size instead of vh */
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%; /* Ensure full width */
+}
+
+.logo-full {
+    display: flex;
+    align-items: center;
+    height: 40px; /* Fixed height */
+    line-height: 40px;
+    color: #D67AB1;
+    font-weight: 500;
+    white-space: nowrap;
+    width: 100%; /* Ensure full width */
+}
+
+.logo-h {
+    display: inline-block;
+    padding-left: 10px; /* Fixed padding */
+}
+
+.logo-rest {
+    display: inline-block;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+    max-width: 150px; /* Slightly reduced to ensure fit */
+    overflow: hidden;
+}
+
+/* Collapsed state */
+#header-outer.collapsed .logo-rest {
+    opacity: 0;
+    max-width: 0;
+}
+
+/* Expanded state */
+#header-outer.expanded .logo-rest {
+    opacity: 1;
+    max-width: 200px;
+}

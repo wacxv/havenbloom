@@ -1,0 +1,1664 @@
+/* Reset and base styles */
+.home-dash-page-root {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F4F8FD;
+    display: flex;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Left sidebar navigation */
+.home-dash-page-root .home-dash-sidebar {
+    width: 72px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.home-dash-page-root .home-dash-sidebar-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: #D67AB1;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.home-dash-page-root .home-dash-sidebar-icon.home-dash-active {
+    color: #D67AB1;
+    font-weight: bold;
+}
+
+.home-dash-page-root .home-dash-sidebar-icon.home-dash-logo {
+    color: #D67AB1;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Main content area */
+.home-dash-page-root .home-dash-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+/* Dashboard header */
+.home-dash-page-root .home-dash-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.home-dash-page-root .home-dash-dashboard-title {
+    color: #D67AB1;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.home-dash-page-root .home-dash-dashboard-subtitle {
+    color: #888;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.home-dash-page-root .home-dash-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-dash-page-root .home-dash-user-info {
+    text-align: right;
+}
+
+.home-dash-page-root .home-dash-patient-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.home-dash-page-root .home-dash-patient-email {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+.home-dash-page-root .home-dash-profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #D67AB1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 40px;
+}
+
+/* Dashboard content layout */
+.home-dash-page-root .home-dash-dashboard-content {
+    display: flex;
+    gap: 25px;
+}
+
+.home-dash-page-root .home-dash-dashboard-main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.home-dash-page-root .home-dash-dashboard-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Card containers */
+.home-dash-page-root .home-dash-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(214, 122, 177, 1);
+}
+
+.home-dash-page-root .home-dash-card-title {
+  color: #D67AB1;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Health metrics section */
+.home-dash-page-root .home-dash-health-metrics {
+    margin-bottom: 10px;
+    border: 1px solid rgba(214, 122, 177, 1);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.home-dash-page-root .home-dash-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.home-dash-page-root .home-dash-metric-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(214, 122, 177, 1);
+}
+
+.home-dash-page-root .home-dash-metric-icon {
+    color: #FF6B6B;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.home-dash-page-root .home-dash-metric-title {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+.home-dash-page-root .home-dash-metric-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.home-dash-page-root .home-dash-metric-unit {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Your Doctors section */
+.home-dash-page-root .home-dash-doctors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Doctor item styling - flexbox version */
+.home-dash-page-root .home-dash-doctor-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+  border: 1px solid rgba(214, 122, 177, 0.2);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  background-color: white;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.home-dash-page-root .home-dash-doctor-item:hover {
+  background-color: rgba(214, 122, 177, 0.4);
+}
+
+.home-dash-page-root .home-dash-doctor-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D67AB1;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.home-dash-page-root .home-dash-doctor-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-dash-page-root .home-dash-doctor-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.home-dash-page-root .home-dash-doctor-specialization {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.home-dash-page-root .home-dash-doctor-schedule {
+  margin-left: auto;
+}
+
+/* Prescriptions section */
+.home-dash-page-root .home-dash-prescriptions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.home-dash-page-root .home-dash-prescription-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+    border: solid 1px rgba(214, 122, 177, 0.2);
+}
+
+.home-dash-page-root .home-dash-prescription-item:hover {
+    background-color: rgba(214, 122, 177, 0.4);
+}
+
+.home-dash-page-root .home-dash-prescription-info {
+    flex: 1;
+}
+
+.home-dash-page-root .home-dash-prescription-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    margin: 0 0 4px 0;
+}
+
+.home-dash-page-root .home-dash-prescription-date {
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Calendar section */
+.home-dash-page-root .home-dash-calendar-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(214, 122, 177, 1);
+    width: 100%;
+    max-width: 300px;
+    max-height: 35vh;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.home-dash-page-root .home-dash-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.home-dash-page-root .home-dash-calendar-header h3 {
+    color: #D67AB1;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+    flex: 1;
+}
+
+.home-dash-page-root .home-dash-calendar-nav-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.home-dash-page-root .home-dash-calendar-nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.home-dash-page-root .home-dash-calendar-widget {
+    height: 300px;
+}
+
+/* Upcoming appointments */
+.home-dash-page-root .home-dash-upcoming-appointments {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px 18px 20px;
+    box-shadow: 0 4px 18px rgba(214, 122, 177, 0.10);
+    border: 2px solid #D67AB1;
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
+    max-height: 35vh;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 10px auto;
+    transition: box-shadow 0.2s;
+}
+
+.home-dash-page-root .home-dash-upcoming-appointments h3 {
+    color: #D67AB1;
+    font-size: 21px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+/* Create a scrollable container for the appointment cards */
+.home-dash-page-root .home-dash-appointments-scroll-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 4px;
+    margin-right: -4px;
+    padding-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Custom scrollbar for the appointments container */
+.home-dash-page-root .home-dash-appointments-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.home-dash-page-root .home-dash-appointments-scroll-container::-webkit-scrollbar-track {
+    background: rgba(214, 122, 177, 0.1);
+    border-radius: 8px;
+}
+
+.home-dash-page-root .home-dash-appointments-scroll-container::-webkit-scrollbar-thumb {
+    background: #D67AB1;
+    border-radius: 8px;
+}
+
+.home-dash-page-root .home-dash-appointments-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #c06699;
+}
+
+/* Override React Big Calendar styles */
+.home-dash-page-root .home-dash-calendar-widget .rbc-calendar {
+    font-family: Arial, sans-serif;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-month-view {
+    background-color: white;
+    border: 2px solid #D67AB1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-day-bg {
+    background-color: white;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-header {
+    background-color: rgba(214, 122, 177, 0.2);
+    color: #333;
+    border-bottom: 1px solid rgba(214, 122, 177, 0.3);
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-month-row {
+    border-color: rgba(214, 122, 177, 0.2);
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-day-bg + .rbc-day-bg {
+    border-color: rgba(214, 122, 177, 0.2);
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-off-range {
+    opacity: 0.5;
+    color: #999;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-today {
+    background-color: rgba(214, 122, 177, 0.1);
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-date-cell > a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-day-bg:hover {
+  background-color: transparent !important;
+  cursor: default !important;
+  border-radius: 0 !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-date-cell:hover {
+  background-color: transparent !important;
+  cursor: default !important;
+  border-radius: 0 !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-date-cell > a:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+  transform: none !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-date-cell {
+  text-align: center !important;
+  padding: 2px !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-row-segment {
+  padding: 0 !important;
+  visibility: visible !important;
+}
+
+.home-dash-page-root .home-dash-calendar-widget .rbc-today .rbc-date-cell > a {
+  background-color: #D67AB1;
+  color: white;
+  font-weight: bold;
+}
+
+.home-dash-date-cell-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.home-dash-has-appointment {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+
+.home-dash-appointment-dot {
+    width: 9px;
+    height: 9px;
+    background: #D67AB1;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.home-dash-page-root .home-dash-appointment-dot {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #D67AB1;
+    border-radius: 50%;
+}
+
+.home-dash-page-root .home-dash-date-cell-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Appointment items */
+.home-dash-page-root .home-dash-appointment-item {
+    background-color: rgba(184, 145, 184, 0.6);
+    border-radius: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.home-dash-page-root .home-dash-appointment-item:hover {
+    background-color: rgba(184, 145, 184, 0.8);
+}
+
+.home-dash-page-root .home-dash-appointment-date {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.home-dash-page-root .home-dash-appointment-title {
+    font-size: 13px;
+}
+
+/* Modal Overlay Styling */
+.home-dash-doctor-modal-overlay,
+.home-dash-prescription-modal-overlay,
+.home-dash-appointment-modal-overlay,
+.home-dash-patient-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Content Styling */
+.home-dash-doctor-modal,
+.home-dash-prescription-modal,
+.home-dash-appointment-modal,
+.home-dash-patient-modal {
+  background-color: white;
+  border-radius: 15px;
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10000;
+  border: 1px solid rgba(214, 122, 177, 0.4);
+}
+
+/* Modal Header Styling */
+.home-dash-doctor-modal-header,
+.home-dash-prescription-modal-header,
+.home-dash-appointment-modal-header,
+.home-dash-patient-modal-header {
+  border-bottom: 1px solid rgba(214, 122, 177, 0.2);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.home-dash-doctor-modal-header h3,
+.home-dash-prescription-modal-header h3,
+.home-dash-appointment-modal-header h3,
+.home-dash-patient-modal-header h3 {
+  color: #D67AB1;
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Modal Body Styling */
+.home-dash-doctor-modal-body,
+.home-dash-prescription-modal-body,
+.home-dash-appointment-modal-body,
+.home-dash-patient-modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Modal Footer Styling */
+.home-dash-doctor-modal-footer,
+.home-dash-prescription-modal-footer,
+.home-dash-appointment-modal-footer,
+.home-dash-patient-modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Button Styling */
+.home-dash-close-btn,
+.home-dash-print-btn,
+.home-dash-join-call-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.home-dash-close-btn {
+  background-color: #D67AB1;
+  color: white;
+}
+
+.home-dash-close-btn:hover {
+  background-color: #c05597;
+}
+
+.home-dash-print-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.home-dash-print-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.home-dash-join-call-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.home-dash-join-call-btn:hover {
+  background-color: #45a049;
+}
+
+/* Update appointment card styling */
+.home-dash-page-root .home-dash-appointment-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(47, 24, 71, 0.2);
+    font-size: 1rem;
+    color: #000;
+    border: 1px solid rgba(214, 122, 177, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.home-dash-page-root .home-dash-appointment-info {
+    flex: 1;
+}
+
+.home-dash-page-root .home-dash-appointment-datetime {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+}
+
+.home-dash-page-root .home-dash-appointment-notes {
+    color: #666;
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+.home-dash-page-root .home-dash-appointment-with {
+    color: #666;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.home-dash-page-root .home-dash-call-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #D67AB1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+}
+
+.home-dash-page-root .home-dash-call-button:hover {
+    background-color: #c06699;
+}
+
+/* Admin Dashboard Styles */
+.home-dash-admin-view .home-dash-dashboard-main,
+.home-dash-admin-view .home-dash-dashboard-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-dash-admin-view .home-dash-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(214, 122, 177, 0.1);
+}
+
+.home-dash-admin-view .home-dash-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.home-dash-admin-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.home-dash-stat-item {
+  text-align: center;
+  padding: 10px;
+  background: rgba(214, 122, 177, 0.05);
+  border-radius: 10px;
+  min-width: 80px;
+}
+
+.home-dash-stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #D67AB1;
+  margin-bottom: 5px;
+}
+
+.home-dash-stat-label {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.home-dash-loading-text, .home-dash-error-text, .home-dash-no-data-text {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.home-dash-loading-text {
+  background: rgba(0, 0, 0, 0.03);
+  color: #666;
+}
+
+.home-dash-error-text {
+  background: rgba(255, 0, 0, 0.05);
+  color: #d32f2f;
+}
+
+.home-dash-no-data-text {
+  background: rgba(0, 0, 0, 0.03);
+  color: #666;
+  font-style: italic;
+}
+
+/* Enhanced Create Prescription Button */
+.home-dash-create-prescription-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.home-dash-create-prescription-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(214, 122, 177, 0.6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.home-dash-create-prescription-btn:hover {
+  background-color: rgba(214, 122, 177, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 157, 0.3);
+}
+
+.home-dash-create-prescription-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255, 107, 157, 0.2);
+}
+
+.home-dash-create-prescription-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Styles */
+.home-dash-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+  overflow-y: auto;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.home-dash-prescription-modal {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 550px;
+  padding-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+/* Modal Header */
+.home-dash-prescription-modal .home-dash-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(214, 122, 177, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-dash-prescription-modal .home-dash-modal-header h3 {
+  margin: 0;
+  color: #D67AB1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.home-dash-prescription-modal .home-dash-close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+}
+
+/* Form Layout */
+.home-dash-prescription-form {
+  padding: 20px;
+}
+
+/* Form Groups */
+.home-dash-prescription-form .home-dash-form-group {
+  margin-bottom: 18px;
+}
+
+.home-dash-prescription-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+  font-size: 15px;
+}
+
+/* Input Fields */
+.home-dash-prescription-form .home-dash-form-control {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #FFFFFF;
+  color: #333333;
+  border: 2px solid #D67AB1;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.home-dash-prescription-form .home-dash-form-control:focus {
+  outline: none;
+  border-color: #D67AB1;
+  box-shadow: 0 0 0 2px rgba(214, 122, 177, 0.25);
+}
+
+.home-dash-prescription-form .home-dash-form-control:disabled {
+  background-color: #f9f9f9;
+  border-color: #D67AB1;
+  color: #666;
+  opacity: 0.8;
+}
+
+.home-dash-prescription-form textarea.home-dash-form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Medications section */
+.home-dash-medications-section {
+  margin-top: 20px;
+}
+
+.home-dash-medications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.home-dash-medications-header h4 {
+  margin: 0;
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.home-dash-add-medication-btn {
+  background-color: white;
+  color: #D67AB1;
+  border: 1px solid #D67AB1;
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.home-dash-add-medication-btn:hover {
+  background-color: rgba(214, 122, 177, 0.08);
+}
+
+.home-dash-medication-item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.home-dash-medication-number {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 26px;
+  height: 26px;
+  background-color: #D67AB1;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.home-dash-medication-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.home-dash-medication-inputs .home-dash-form-control {
+  margin-bottom: 0;
+}
+
+/* Footer with buttons */
+.home-dash-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.home-dash-cancel-btn {
+  padding: 10px 20px;
+  background-color: #f3f3f3;
+  color: #666;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.home-dash-cancel-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.home-dash-create-btn {
+  padding: 10px 24px;
+  background-color: #D67AB1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.home-dash-create-btn:hover {
+  background-color: #c06699;
+}
+
+.home-dash-create-btn:active {
+  transform: translateY(1px);
+}
+
+.home-dash-form-control-select {
+  position: relative;
+  width: 100%;
+}
+
+.home-dash-form-control-select select {
+  appearance: none;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.home-dash-select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #D67AB1;
+}
+
+/* Pink scrollbar styling */
+.home-dash-page-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.home-dash-page-root ::-webkit-scrollbar-track {
+  background: rgba(214, 122, 177, 0.1);
+  border-radius: 8px;
+}
+
+.home-dash-page_root ::-webkit-scrollbar-thumb {
+  background: #D67AB1;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-dash-page_root ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D67AB1 rgba(214, 122, 177, 0.1);
+}
+
+/* Click animations */
+.home-dash-page-root .home-dash-doctor-item:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 0 8px rgba(214, 122, 177, 0.6);
+  background-color: rgba(214, 122, 177, 0.5);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.home-dash-page-root .home-dash-prescription-item:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 0 10px rgba(214, 122, 177, 0.7);
+  border-color: rgba(214, 122, 177, 0.8);
+  background-color: rgba(214, 122, 177, 0.5);
+  transition: all 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.home-dash-page-root .home-dash-appointment-card:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: inset 0 0 12px rgba(214, 122, 177, 0.7);
+  border-width: 2px;
+  border-color: rgba(214, 122, 177, 0.9);
+  transition: all 0.12s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Animations */
+@keyframes home-dash-popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes home-dash-popupFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes home-dash-backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 0.5; }
+}
+
+@keyframes home-dash-backdropFadeOut {
+  from { opacity: 0.5; }
+  to { opacity: 0; }
+}
+
+.home-dash-doctor-modal,
+.home-dash-prescription-modal,
+.home-dash-appointment-modal {
+  animation: home-dash-popupFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: top center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.home-dash-modal-backdrop {
+  animation: home-dash-backdropFadeIn 0.25s ease forwards;
+}
+
+.home-dash-modal-closing {
+  animation: home-dash-popupFadeOut 0.25s ease forwards !important;
+}
+
+.home-dash-backdrop-closing {
+  animation: home-dash-backdropFadeOut 0.2s ease forwards !important;
+}
+
+/* Add these styles to your Home.css file */
+.home-dash-edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.home-dash-edit-btn:hover {
+    background-color: #45a049;
+}
+
+.home-dash-edit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.home-dash-delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.home-dash-delete-btn:hover {
+    background-color: #da190b;
+}
+
+.home-dash-delete-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.home-dash-doctor-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Add these styles to enhance the medications section with pink theme: */
+
+/* Medications Section Enhancement */
+.home-dash-prescription-modal-body .home-dash-medications-section {
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.08) 0%, rgba(225, 154, 196, 0.05) 100%);
+    border: 1px solid rgba(214, 122, 177, 0.2);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.home-dash-prescription-modal-body h4 {
+    color: #D67AB1 !important;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    border-bottom: 2px solid rgba(214, 122, 177, 0.3);
+    padding-bottom: 8px;
+}
+
+/* Individual Medication Items */
+.home-dash-prescription-modal-body .home-dash-medication-item {
+    background: white;
+    border: 1px solid rgba(214, 122, 177, 0.25);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(214, 122, 177, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.home-dash-prescription-modal-body .home-dash-medication-item:hover {
+    border-color: rgba(214, 122, 177, 0.4);
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Medication Header with Pink Accent */
+.home-dash-prescription-modal-body .home-dash-medication-item h5 {
+    color: #D67AB1;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.1) 0%, rgba(225, 154, 196, 0.05) 100%);
+    border-radius: 6px;
+    border-left: 4px solid #D67AB1;
+}
+
+/* Medication Details */
+.home-dash-prescription-modal-body .home-dash-medication-item p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.home-dash-prescription-modal-body .home-dash-medication-item strong {
+    color: #D67AB1;
+    font-weight: 600;
+}
+
+/* Frequency and Duration styling */
+.home-dash-prescription-modal-body .home-dash-medication-frequency,
+.home-dash-prescription-modal-body .home-dash-medication-duration {
+    display: inline-block;
+    background: rgba(214, 122, 177, 0.1);
+    color: #D67AB1;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 4px 6px 4px 0;
+    border: 1px solid rgba(214, 122, 177, 0.2);
+}
+
+/* Add a subtle pink glow to the entire medications section */
+.home-dash-prescription-modal-body .home-dash-medications-section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.3) 0%, rgba(225, 154, 196, 0.2) 100%);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.home-dash-prescription-modal-body .home-dash-medications-section:hover::before {
+    opacity: 1;
+}
+
+/* Update the main medications label */
+.home-dash-prescription-modal-body .home-dash-medications-label {
+    color: #D67AB1;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pink divider between medications */
+.home-dash-prescription-modal-body .home-dash-medication-divider {
+    height: 2px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.4) 0%, rgba(225, 154, 196, 0.2) 100%);
+    border-radius: 1px;
+    margin: 15px 0;
+}
+
+/* Add pink accent to prescription details */
+.home-dash-prescription-modal-body .home-dash-prescription-detail {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(214, 122, 177, 0.15);
+    box-shadow: 0 2px 8px rgba(214, 122, 177, 0.08);
+}
+
+.home-dash-prescription-modal-body .home-dash-prescription-detail p strong {
+    color: #D67AB1;
+    font-weight: 600;
+}
+
+.home-dash-prescription-modal-header h3 {
+    color: #D67AB1 !important;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Pink accents for the Print and Close buttons */
+.home-dash-prescription-modal-footer .home-dash-print-btn {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.3);
+}
+
+.home-dash-prescription-modal-footer .home-dash-print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 122, 177, 0.4);
+}
+
+.home-dash-prescription-modal-footer .home-dash-close-btn {
+    background-color: white;
+    color: #D67AB1;
+    border: 2px solid #D67AB1;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.home-dash-prescription-modal-footer .home-dash-close-btn:hover {
+    background-color: #D67AB1;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Add these styles to the END of your Home.css file: */
+
+/* Edit Doctor Modal Styles */
+.home-dash-edit-doctor-modal {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(214, 122, 177, 0.3);
+    border: 2px solid #D67AB1;
+}
+
+.home-dash-edit-doctor-modal .home-dash-modal-header {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%);
+    color: white;
+    padding: 20px 25px;
+    border-bottom: none;
+}
+
+.home-dash-edit-doctor-modal .home-dash-modal-header h3 {
+    color: white !important;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.home-dash-doctor-form {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.home-dash-doctor-form .home-dash-form-group {
+    margin-bottom: 18px;
+}
+
+.home-dash-doctor-form .home-dash-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #D67AB1;
+    font-size: 14px;
+}
+
+.home-dash-doctor-form .home-dash-form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid rgba(214, 122, 177, 0.3);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background-color: white;
+    color: #333;
+}
+
+.home-dash-doctor-form .home-dash-form-control:focus {
+    outline: none;
+    border-color: #D67AB1;
+    box-shadow: 0 0 0 3px rgba(214, 122, 177, 0.2);
+    transform: translateY(-1px);
+}
+
+.home-dash-doctor-form select.home-dash-form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D67AB1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.home-dash-doctor-form textarea.home-dash-form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Edit Patient Modal - Same styling */
+.home-dash-edit-patient-modal {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(214, 122, 177, 0.3);
+    border: 2px solid #D67AB1;
+}
+
+.home-dash-edit-patient-modal .home-dash-modal-header {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%);
+    color: white;
+    padding: 20px 25px;
+    border-bottom: none;
+}
+
+.home-dash-edit-patient-modal .home-dash-modal-header h3 {
+    color: white !important;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Update Button Styles */
+.home-dash-update-btn {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 3px 10px rgba(214, 122, 177, 0.3) !important;
+}
+
+.home-dash-update-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(214, 122, 177, 0.4) !important;
+}
+
+.home-dash-update-btn:disabled {
+    background: #cccccc !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Modal Footer for Edit Forms */
+.home-dash-edit-doctor-modal .home-dash-modal-footer,
+.home-dash-edit-patient-modal .home-dash-modal-footer {
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.1) 0%, rgba(225, 154, 196, 0.1) 100%);
+    padding: 20px 25px;
+    border-top: 1px solid rgba(214, 122, 177, 0.2);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Update existing modal footer for consistency */
+.home-dash-modal-footer .home-dash-cancel-btn {
+    background-color: white !important;
+    color: #D67AB1 !important;
+    border: 2px solid #D67AB1 !important;
+    padding: 10px 22px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.home-dash-modal-footer .home-dash-cancel-btn:hover {
+    background-color: #D67AB1 !important;
+    color: white !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Custom scrollbar for edit modal forms */
+.home-dash-doctor-form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.home-dash-doctor-form::-webkit-scrollbar-track {
+    background: rgba(214, 122, 177, 0.1);
+    border-radius: 8px;
+}
+
+.home-dash-doctor-form::-webkit-scrollbar-thumb {
+    background: #D67AB1;
+    border-radius: 8px;
+}
+
+.home-dash-doctor-form::-webkit-scrollbar-thumb:hover {
+    background: #c06699;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-dash-edit-doctor-modal,
+    .home-dash-edit-patient-modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .home-dash-edit-doctor-modal .home-dash-modal-footer,
+    .home-dash-edit-patient-modal .home-dash-modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .home-dash-update-btn,
+    .home-dash-modal-footer .home-dash-cancel-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* Focus states for accessibility */
+.home-dash-update-btn:focus,
+.home-dash-modal-footer .home-dash-cancel-btn:focus {
+    outline: 3px solid rgba(214, 122, 177, 0.5) !important;
+    outline-offset: 2px !important;
+}
+
+/* Emergency Contact Section in Edit Patient */
+.home-dash-emergency-contact-section {
+    background: rgba(214, 122, 177, 0.05);
+    border: 1px solid rgba(214, 122, 177, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.home-dash-emergency-contact-section h4 {
+    color: #D67AB1;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+/* Validation error styling for edit forms */
+.home-dash-form-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+}
+
+.home-dash-error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Loading states for edit forms */
+.home-dash-edit-form-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #D67AB1;
+    font-size: 16px;
+}
