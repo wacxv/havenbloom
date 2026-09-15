@@ -2,6 +2,8 @@
 
 HavenBloom is a thesis project for a pregnancy-focused telemedicine platform. It connects pregnant patients with doctors through secure profiles, appointments, messaging, video consultations, prescriptions, device management, and live fetal and maternal heart-rate monitoring.
 
+This thesis project was developed in collaboration with [mavcay](https://github.com/mavcay).
+
 The project is organized as three connected applications:
 
 - `havenbloom-frontend-main`: React 19 client built with Vite
