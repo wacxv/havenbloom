@@ -1,0 +1,1040 @@
+/* Main layout - match Home's color scheme and layout */
+.calendar-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F4F8FD; /* Match Home background */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Main content area - match Home padding and structure */
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Dashboard header - match Home component */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.dashboard-title {
+    color: #D67AB1;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    color: #888;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.patient-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.patient-email {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #D67AB1;
+}
+
+/* Remove the old header styles since we're now using dashboard-header */
+.header {
+    display: none;
+}
+
+/* Calendar content - use consistent spacing with Home */
+.calendar-content-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Match Home dashboard-content gap */
+}
+
+/* Calendar section - match Home card styling */
+.calendar-section {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(214, 122, 177, 1); /* Match Home border style */
+}
+
+.section-title {
+    color: #D67AB1; /* Match Home color */
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header h2 {
+    color: #D67AB1; /* Match Home color */
+    font-size: 20px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Month calendar container styling */
+.month-calendar-container {
+    height: 500px; /* Set explicit height for calendar */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* React calendar overrides - match Home calendar styling */
+.rbc-calendar {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.rbc-header {
+    padding: 10px 0;
+    font-weight: 500;
+    background-color: rgba(214, 122, 177, 0.2);
+    color: #333;
+    border-bottom: 1px solid rgba(214, 122, 177, 0.3);
+}
+
+.rbc-date-cell {
+    text-align: center !important;
+    padding: 2px !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+.rbc-date-cell > a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    visibility: visible !important;
+}
+
+.rbc-off-range {
+    color: #888;
+}
+
+.rbc-today {
+    background-color: rgba(184, 145, 184, 0.8);
+}
+
+.rbc-event {
+    background-color: #D67AB1;
+    border-radius: 4px;
+}
+
+.rbc-event-label {
+    font-size: 12px;
+}
+
+/* Match Home's border colors */
+.rbc-day-bg {
+    background-color: white;
+    border-color: rgba(214, 122, 177, 0.2);
+}
+
+.rbc-month-row {
+    border-color: rgba(214, 122, 177, 0.2);
+}
+
+.rbc-day-bg + .rbc-day-bg {
+    border-color: rgba(214, 122, 177, 0.2);
+}
+
+.rbc-month-view {
+    background-color: white;
+    border: 2px solid #D67AB1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Date cell wrapper to help with circular styling */
+.date-cell-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Appointment dot styling - match Home */
+.appointment-dot {
+    width: 9px;
+    height: 9px;
+    background: linear-gradient(135deg, #a259c6 40%, #f672a7 100%);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #fff;
+    box-shadow: 0 0 4px #fff, 0 0 0 2px #fff;
+    z-index: 2;
+}
+
+/* Upcoming appointments section - match Home card styling */
+.upcoming-appointments {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(214, 122, 177, 0.3);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Increased height */
+    max-height: 50vh; /* Responsive height */
+}
+
+/* Section title styling - keep it outside the scroll container */
+.upcoming-appointments .section-title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    color: #D67AB1;
+    background-color: white;
+}
+
+/* Create a scrollable container for the appointment cards */
+.appointments-scroll-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 5px;
+    margin-right: -5px; /* Compensate for padding */
+    margin-bottom: -5px; /* Compensate for bottom space */
+    padding-bottom: 5px;
+}
+
+/* Fix appointment cards to fit within container */
+.appointment-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(47, 24, 71, 0.2);
+    font-size: 1rem;
+    color: #000;
+    border: 1px solid rgba(214, 122, 177, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Make appointment cards clickable */
+.appointment-card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Last card shouldn't have bottom margin */
+.appointment-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Status badge styles */
+.appointment-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.appointment-status.scheduled {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.appointment-status.pending {
+    background-color: #fff8e1;
+    color: #f57c00;
+}
+
+.appointment-status.completed {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.appointment-status.confirmed {
+    background-color: #e8e9f5;
+    color: #1d4ac5;
+}
+.appointment-status.cancelled {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+/* Loading and error messages */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #888;
+    font-size: 16px;
+}
+
+.error-message {
+    color: #e53935;
+    font-size: 14px;
+    background-color: rgba(229, 57, 53, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Modal Styles */
+/* Appointment Detail Modal - Based on Home prescription modal */
+.appointment-detail-modal {
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 550px;
+    padding-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+/* Modal Header */
+.appointment-detail-modal .modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(214, 122, 177, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-detail-modal .modal-header h3 {
+    margin: 0;
+    color: #D67AB1;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.appointment-detail-modal .modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* Modal Body Styling */
+.appointment-detail-modal .modal-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Appointment Details Section */
+.appointment-details-section {
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.08) 0%, rgba(225, 154, 196, 0.05) 100%);
+    border: 1px solid rgba(214, 122, 177, 0.2);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.appointment-details-section h4 {
+    color: #D67AB1 !important;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    border-bottom: 2px solid rgba(214, 122, 177, 0.3);
+    padding-bottom: 8px;
+}
+
+/* Individual Detail Items */
+.appointment-detail-item {
+    background: white;
+    border: 1px solid rgba(214, 122, 177, 0.25);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(214, 122, 177, 0.1);
+    transition: all 0.3s ease;
+}
+
+.appointment-detail-item:hover {
+    border-color: rgba(214, 122, 177, 0.4);
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.15);
+    transform: translateY(-2px);
+}
+
+.appointment-detail-item label {
+    color: #D67AB1;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.appointment-detail-item .detail-value {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Status styling */
+.appointment-status-badge {
+    display: inline-block;
+    background: rgba(214, 122, 177, 0.1);
+    color: #D67AB1;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 4px 6px 4px 0;
+    border: 1px solid rgba(214, 122, 177, 0.2);
+}
+
+/* Modal Footer */
+.appointment-detail-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(214, 122, 177, 0.2);
+    padding-top: 15px;
+}
+
+.appointment-detail-modal .contact-btn {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.3);
+}
+
+.appointment-detail-modal .contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 122, 177, 0.4);
+}
+
+.appointment-detail-modal .close-btn {
+    background-color: white;
+    color: #D67AB1;
+    border: 2px solid #D67AB1;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.appointment-detail-modal .close-btn:hover {
+    background-color: #D67AB1;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Appointment overlay - match Home modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1000;
+    overflow-y: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+/* Subtle pink glow effect */
+.appointment-details-section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.3) 0%, rgba(225, 154, 196, 0.2) 100%);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.appointment-details-section:hover::before {
+    opacity: 1;
+}
+
+/* Custom scrollbar for appointment modal */
+.appointment-detail-modal .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.appointment-detail-modal .modal-body::-webkit-scrollbar-track {
+    background: rgba(214, 122, 177, 0.1);
+    border-radius: 8px;
+}
+
+.appointment-detail-modal .modal-body::-webkit-scrollbar-thumb {
+    background: #D67AB1;
+    border-radius: 8px;
+}
+
+.appointment-detail-modal .modal-body::-webkit-scrollbar-thumb:hover {
+    background: #c06699;
+}
+
+/* React DatePicker Customization */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.react-datepicker__day--selected {
+    background-color: #D67AB1 !important;
+}
+
+/* Call button to message icon conversion */
+.call-button {
+    background: #e2fbe6;
+    border: none;
+    border-radius: 20px; /* Reduced from 10px */
+    padding: 5px 8px; /* Reduced from 7px 10px */
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;  /* Fixed width for a more compact look */
+    height: 40px; /* Fixed height for a more compact look */
+}
+
+.call-button:hover {
+    background-color: #b6f5c3;
+}
+
+/* Appointment action buttons */
+.appointment-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+    justify-content: center; /* Center the buttons */
+}
+.accomplished-btn{
+    padding: 12px 24px;
+    background-color: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100px; /* Limit width */
+    min-width: 50px; /* Ensure minimum width */
+}
+.accomplished-btn:hover:not(:disabled) {
+    background-color: #28A745;
+    transform: translateY(-1px);
+}
+.accept-btn {
+    padding: 12px 24px;
+    background-color: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100px; /* Limit width */
+    min-width: 50px; /* Ensure minimum width */
+}
+
+.accept-btn:hover:not(:disabled) {
+    background-color: #28A745;
+    transform: translateY(-1px);
+}
+
+.cancel-appointment-btn {
+    padding: 12px 24px;
+    background-color: #FF3B30;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100px; /* Slightly wider for "Cancel Appointment" text */
+    min-width: 50px; /* Ensure minimum width */
+}
+
+.cancel-appointment-btn:hover:not(:disabled) {
+    background-color: #DC2626;
+    transform: translateY(-1px);
+}
+
+.accept-btn:disabled,
+.cancel-appointment-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status display styling */
+.appointment-status-display {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.appointment-status-display.scheduled {
+    background-color: #FFF3CD;
+    color: #856404;
+}
+
+.appointment-status-display.pending {
+    background-color: #CCE5FF;
+    color: #004085;
+}
+
+.appointment-status-display.confirmed {
+    background-color: #e8e9f5;
+    color: #1d4ac5;
+}
+
+.appointment-status-display.cancelled {
+    background-color: #F8D7DA;
+    color: #721c24;
+}
+
+.appointment-status-display.completed {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+/* Finalized message */
+.appointment-finalized-message {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    border-left: 4px solid #6C757D;
+}
+
+.appointment-finalized-message p {
+    margin: 0;
+    color: #6C757D;
+    font-style: italic;
+}
+
+.create-appointment-button-container {
+    display: flex;
+    justify-content: flex-end; /* Move to right side */
+    margin: -30px 10px 10px 0px; /* Reduced margin */
+}
+.appointment-history {
+    margin-top: 25px; /* Add spacing between sections */
+}
+
+.appointment-history .section-title {
+    color: #888; /* Slightly muted color for history */
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+}
+
+/* Optional: Different styling for history cards to distinguish them */
+.appointment-history .appointment-card {
+    opacity: 0.9; /* Slightly faded to show they're historical */
+    border-color: rgba(136, 136, 136, 0.3); /* Muted border color */
+}
+
+.appointment-history .appointment-card:hover {
+    opacity: 1;
+    transform: translateY(-1px); /* Less hover effect than active appointments */
+}
+.create-appointment-btn {
+    background: linear-gradient(to right, #D67AB1, #c06699);
+    color: white;
+    border: none;
+    border-radius: 25px; /* Reduced border radius */
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 14px; /* Reduced font size */
+    font-weight: 500; /* Reduced font weight */
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Reduced gap */
+    box-shadow: 0 2px 8px rgba(214, 122, 177, 0.25); /* Reduced shadow */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 180px; /* Reduced width */
+    text-align: center;
+    justify-content: center;
+}
+
+.create-appointment-btn:hover {
+    transform: translateY(-1px); /* Reduced transform */
+    box-shadow: 0 4px 10px rgba(214, 122, 177, 0.4); /* Reduced shadow */
+    background: linear-gradient(to right, #c06699, #b05688);
+}
+
+.create-appointment-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(214, 122, 177, 0.3);
+}
+
+.create-appointment-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px; /* Reduced margin */
+}
+
+.create-appointment-btn-icon svg {
+    width: 16px; /* Reduced icon size */
+    height: 16px; /* Reduced icon size */
+}
+
+.create-appointment-modal {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    min-width: 400px;
+    padding-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Create appointment modal header */
+.create-appointment-modal .modal-header {
+    padding: 20px 24px 16px 24px;
+    border-bottom: 1px solid rgba(214, 122, 177, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.create-appointment-modal .modal-header h3 {
+    margin: 0;
+    color: #D67AB1;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.create-appointment-modal .modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+
+/* Create appointment modal body */
+.create-appointment-modal .modal-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Create appointment form styling */
+.create-appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.create-appointment-form .form-group {
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.08) 0%, rgba(225, 154, 196, 0.05) 100%);
+    border: 1px solid rgba(214, 122, 177, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+}
+
+.create-appointment-form .form-group label {
+    color: #D67AB1;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+    border-bottom: 2px solid rgba(214, 122, 177, 0.3);
+    padding-bottom: 6px;
+}
+
+.create-appointment-form .form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(214, 122, 177, 0.25);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    color: #555;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    box-shadow: 0 2px 6px rgba(214, 122, 177, 0.1);
+    box-sizing: border-box;
+}
+
+.create-appointment-form .form-control:hover {
+    border-color: rgba(214, 122, 177, 0.4);
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.15);
+    transform: translateY(-1px);
+}
+
+.create-appointment-form .form-control:focus {
+    outline: none;
+    border-color: #D67AB1;
+    box-shadow: 0 0 0 3px rgba(214, 122, 177, 0.2);
+    transform: none;
+}
+
+.create-appointment-form textarea.form-control {
+    resize: vertical;
+    min-height: 70px;
+    max-height: 120px;
+    font-family: inherit;
+}
+
+/* Create appointment modal footer */
+.create-appointment-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px 20px 24px;
+    border-top: 1px solid rgba(214, 122, 177, 0.2);
+    flex-shrink: 0;
+}
+
+.create-appointment-modal .submit-btn {
+    background: linear-gradient(135deg, #D67AB1 0%, #E19AC4 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.3);
+    min-width: 120px;
+}
+
+.create-appointment-modal .submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 122, 177, 0.4);
+}
+
+.create-appointment-modal .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.create-appointment-modal .cancel-btn {
+    background-color: white;
+    color: #D67AB1;
+    border: 2px solid #D67AB1;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.create-appointment-modal .cancel-btn:hover {
+    background-color: #D67AB1;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Subtle pink glow effect for form groups */
+.create-appointment-form .form-group::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(214, 122, 177, 0.3) 0%, rgba(225, 154, 196, 0.2) 100%);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.create-appointment-form .form-group:hover::before {
+    opacity: 1;
+}
+
+/* Custom scrollbar for create appointment modal */
+.create-appointment-modal .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.create-appointment-modal .modal-body::-webkit-scrollbar-track {
+    background: rgba(214, 122, 177, 0.1);
+    border-radius: 8px;
+}
+
+.create-appointment-modal .modal-body::-webkit-scrollbar-thumb {
+    background: #D67AB1;
+    border-radius: 8px;
+}
+
+.create-appointment-modal .modal-body::-webkit-scrollbar-thumb:hover {
+    background: #c06699;
+}
+
+/* Modal overlay responsive adjustments */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* React DatePicker adjustments for modal */
+.create-appointment-modal .react-datepicker-wrapper {
+    width: 100%;
+}
+
+.create-appointment-modal .react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(214, 122, 177, 0.25);
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .create-appointment-modal {
+        width: 95%;
+        min-width: 300px;
+        margin: 10px;
+    }
+    
+    .create-appointment-modal .modal-header,
+    .create-appointment-modal .modal-body,
+    .create-appointment-modal .modal-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .create-appointment-modal .modal-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .create-appointment-modal .submit-btn,
+    .create-appointment-modal .cancel-btn {
+        width: 100%;
+        min-width: auto;
+    }
+}

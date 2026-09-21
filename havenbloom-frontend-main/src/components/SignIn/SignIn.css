@@ -1,0 +1,340 @@
+/* Completely unique class names for SignIn */
+.auth-signin-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0%;
+    position: relative;
+}
+
+.auth-signin-inner {
+    width: 100%;
+}
+
+.auth-signin-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.auth-signin-top-section {
+    display: flex;
+    justify-content: right;
+    padding: 0;
+    width: auto;
+}
+
+.auth-signin-bottom-section {
+    display: flex;
+    justify-content: left;
+    padding: 0;
+    width: auto;
+}
+
+.auth-signin-card {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2F1847;
+    border-radius: 30px;
+    width: 380px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+}
+
+.auth-signin-card-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    gap: 20px;
+}
+
+.auth-signin-card-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.auth-signin-card-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(45deg, #D67AB1, #e9a9d0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-signin-card-body {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Form styling */
+.auth-signin-form-group {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.auth-signin-form-group label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #f0f0f0;
+}
+
+.auth-signin-form-group input {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    font-size: 16px;
+    width: calc(100% - 30px);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.auth-signin-form-group input:hover {
+    background-color: rgba(214, 122, 177, 0.15);
+    cursor: text;
+}
+
+.auth-signin-form-group input:focus {
+    background-color: rgba(214, 122, 177, 0.2);
+}
+
+.auth-signin-form-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: calc(100% - 0px);
+    margin: 0;
+    margin-top: 1px;
+    transition: background-color 0.3s ease;
+}
+
+/* Forgot password link */
+.auth-signin-forgot-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.auth-signin-forgot-text {
+    font-size: 14px;
+}
+
+.auth-signin-forgot-text a {
+    color: #D67AB1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.auth-signin-forgot-text a:hover {
+    color: #e9a9d0;
+    text-decoration: underline;
+}
+
+/* Button styling */
+.auth-signin-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.auth-signin-button {
+    background: linear-gradient(45deg, #D67AB1, #e9a9d0);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    width: auto;
+    min-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.3);
+}
+
+.auth-signin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(214, 122, 177, 0.4);
+}
+
+.auth-signin-button:active {
+    transform: translateY(0);
+}
+
+/* Footer styling */
+.auth-signin-card-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.auth-signin-card-footer p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.auth-signin-card-footer a {
+    color: #D67AB1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    margin-left: 5px;
+}
+
+.auth-signin-card-footer a:hover {
+    color: #e9a9d0;
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.auth-signin-error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.auth-signin-error-absolute {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 59, 48, 0.15);
+    color: #ff6b6b;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    z-index: 10;
+    width: 95%;
+    backdrop-filter: blur(4px);
+    border-left: 3px solid #ff3b30;
+}
+
+.auth-signin-field-error {
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.auth-signin-input-error {
+    border: 1px solid rgba(255, 59, 48, 0.5) !important;
+}
+
+.auth-signin-divider-error {
+    background-color: #ff3b30 !important;
+    height: 2px;
+}
+
+/* Background images */
+.auth-signin-img2 {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 1vh;
+    margin-left: 120vh;
+    width: auto;
+}
+
+.auth-signin-img-container-1 {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.auth-signin-img1 {
+    display: flex;
+    justify-content: center;
+    height: 62vh;
+    margin-top: -17vh;
+    margin-right: 120vh;
+    width: auto;
+}
+
+.auth-signin-img-container-2 {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.auth-signin-error-placeholder {
+    height: 1px;
+    margin-bottom: 15px;
+}
+
+/* Add to SignIn.css */
+.role-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(47, 24, 71, 0.85); /* Match dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.role-modal {
+    background: #2F1847; /* Match card background */
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+    text-align: center;
+    min-width: 320px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.role-modal h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 18px 0;
+    background: linear-gradient(45deg, #D67AB1, #e9a9d0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.role-modal-buttons {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0 0.5rem 0;
+    justify-content: center;
+}
+.role-modal-btn {
+    padding: 0.8rem 2.2rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #D67AB1, #e9a9d0);
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(214, 122, 177, 0.18);
+    outline: none;
+}
+.role-modal-btn:hover {
+    background: linear-gradient(45deg, #e9a9d0, #D67AB1);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(214, 122, 177, 0.28);
+}

@@ -1,0 +1,677 @@
+/* Reset Analytics styles and create isolation */
+.analytics-page-root {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Prefix ALL selectors with .analytics-page-root to prevent overlap */
+.analytics-page-root #analytics-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    color: black;
+}
+
+.analytics-page-root .username-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.analytics-page-root .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.analytics-page-root #analytics-outer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #F4F8FD;
+    color: black;
+}
+
+.analytics-page-root #analytics-inner {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.analytics-page-root #analytics-container {
+    display: flex;
+    gap: 20px;
+}
+
+.analytics-page-root #left-section {
+    flex: 4;
+    background-color: #ffff; /* Light pink background */
+    border-radius: 20px;
+    padding: 20px;
+        border: 1px solid #BCBCBC;
+
+}
+
+.analytics-page-root #left-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.analytics-page-root .section-title {
+    margin-bottom: 10px;
+}
+
+.analytics-page-root .section-title h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.analytics-page-root #data-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.analytics-page-root .data-card {
+    flex: 1;
+    aspect-ratio: 1/1;
+    background-color: rgba(47, 24, 71, 0.4); /* Purple background */
+    border-radius: 20px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.analytics-page-root .prescription-container {
+    width: 100%;
+    min-height: 100px;
+    background-color: rgba(47, 24, 71, 0.4); 
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.analytics-page-root .graph-card {
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.analytics-page-root .graph-card h3 {
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.analytics-page-root .chart-container {
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+
+.analytics-page-root .health-summary-container {
+    padding: 20px;
+    height: 100%;
+}
+
+.analytics-page-root .health-summary-container h3 {
+    color: #fff;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+}
+
+.analytics-page-root .health-summary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.analytics-page-root .health-summary-content p {
+    color: #fff;
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.analytics-page-root .action-button {
+    background-color: #e68bb4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.analytics-page-root .action-button:hover {
+    background-color: #d67ba3;
+}
+
+.analytics-page-root .loading-text, 
+.analytics-page-root .no-data-text, 
+.analytics-page-root .error-text {
+    text-align: center;
+    padding: 15px;
+    font-style: italic;
+    color: #fff;
+}
+
+.analytics-page-root .error-text {
+    color: #ff6b6b;
+}
+
+/* Analytics page - match Home and Calendar styling */
+.analytics-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F4F8FD;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Dashboard header styling */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.dashboard-title {
+    color: #D67AB1;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.patient-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.patient-email {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #D67AB1;
+}
+
+/* Health metrics card - updated to match screenshot */
+.health-metrics-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(214, 122, 177, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Metrics title */
+.metrics-title {
+    color: #D67AB1;
+    font-size: 20px;
+    margin: 0 0 20px 10px;
+    font-weight: 500;
+}
+
+/* Grid for metrics - aligned with screenshot */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Individual metric boxes - updated sizing */
+.metric-box {
+    border: 1px solid rgba(214, 122, 177, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    height: 200px; /* Reduced height to match screenshot */
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-box h3 {
+    color: #D67AB1;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.chart-container {
+    flex-grow: 1;
+    width: 100%;
+    height: 150px; /* Fixed height for chart area */
+    position: relative;
+}
+
+/* Audio Player Card */
+.audio-player-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(214, 122, 177, 0.3);
+  margin-top: 20px;
+}
+
+.audio-title {
+  color: #D67AB1;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.error-message {
+  background-color: #ffe6e6;
+  border: 1px solid #ff9999;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dismiss-error {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.audio-files-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.audio-file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.audio-file-item:hover {
+  background-color: #e9ecef;
+  border-color: #D67AB1;
+}
+
+.audio-file-item.active {
+  background-color: rgba(214, 122, 177, 0.1);
+  border-color: #D67AB1;
+}
+
+.file-info {
+  flex: 1;
+}
+
+.file-name {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.file-date, .file-size {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.play-btn, .delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.play-btn {
+  background-color: #D67AB1;
+  color: white;
+}
+
+.play-btn:hover {
+  background-color: #c269a0;
+}
+
+.play-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #cc3333;
+}
+
+.audio-player-controls {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.player-header h4 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.playback-rate-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.playback-rate-controls label {
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.rate-btn {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.rate-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.rate-btn.active {
+  background-color: #D67AB1;
+  color: white;
+  border-color: #D67AB1;
+}
+
+.progress-container {
+  margin-bottom: 15px;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #D67AB1;
+  border-radius: 3px;
+  transition: width 0.1s ease;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.control-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.play-btn, .pause-btn {
+  background-color: #D67AB1;
+  color: white;
+}
+
+.play-btn:hover, .pause-btn:hover {
+  background-color: #c269a0;
+}
+
+.stop-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.stop-btn:hover {
+  background-color: #545b62;
+}
+
+.no-files {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Sticky Audio Footer */
+.sticky-audio-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 2px solid #d67ab1;
+  box-shadow: 0 -2px 12px rgba(214, 122, 177, 0.08);
+  z-index: 100;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-player-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-player-info {
+  flex: 1;
+  font-size: 1rem;
+  color: #d67ab1;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.footer-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 3;
+}
+
+.footer-time {
+  font-size: 0.95rem;
+  color: #555;
+  min-width: 80px;
+  text-align: center;
+}
+
+.footer-progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #f3e8ff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d67ab1, #818cf8);
+  border-radius: 4px;
+  transition: width 0.2s;
+}
+
+.footer-rate-select {
+  border: 1px solid #d67ab1;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 1rem;
+  color: #d67ab1;
+  background: #fff;
+  margin-left: 8px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #d67ab1;
+  transition: color 0.2s;
+}
+.control-btn:hover {
+  color: #818cf8;
+}
+
+/* Current BPM Display */
+.current-bpm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+
+.bpm-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #D67AB1;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.bpm-unit {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: -2px;
+}
+
+/* Optional: Add a subtle gradient background to make it pop */
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: -8px;
+  padding-bottom: -8px;
+  border-bottom: 1px solid rgba(214, 122, 177, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .audio-file-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .audio-controls {
+    align-self: stretch;
+    justify-content: flex-end;
+  }
+  
+  .player-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .control-buttons {
+    flex-wrap: wrap;
+  }
+}
