@@ -8,14 +8,12 @@ import { enUS } from 'date-fns/locale';
 import { useNavigate } from 'react-router-dom';
 // Import Socket.IO client
 import { io } from 'socket.io-client';
+import { MOCK_APPOINTMENTS, MOCK_DOCTORS, MOCK_PRESCRIPTIONS, MOCK_USER } from '../../data/mockData';
 
-const demoUser = { _id: 'demo-patient', role: 'patient', first_name: 'Elena', last_name: 'Carter', email: 'elena.carter@example.com' };
-const demoDoctors = [
-    { _id: 'demo-doctor-1', full_name: 'Amelia Carter', specialization: 'Obstetrician', schedule_info: 'Mon - Wed, 9:00 AM - 3:00 PM' },
-    { _id: 'demo-doctor-2', full_name: 'Noah Williams', specialization: 'Maternal-fetal medicine', schedule_info: 'Tue - Thu, 10:00 AM - 4:00 PM' }
-];
-const demoPrescriptions = [{ _id: 'demo-prescription-1', medications: [{ name: 'Prenatal vitamins', dosage: '1 tablet', frequency: 'Daily', duration: '30 days' }], doctorName: 'Dr. Amelia Carter', patientName: 'Elena Carter', prescription: 'Continue prenatal vitamins', date: new Date('2025-06-12') }];
-const demoAppointments = [{ _id: 'demo-appointment-1', id: 'demo-appointment-1', title: 'Prenatal checkup', start: new Date('2025-06-15T09:00:00'), end: new Date('2025-06-15T10:00:00'), with: 'Dr. Amelia Carter', doctorName: 'Dr. Amelia Carter', doctorId: 'demo-doctor-1', patientId: 'demo-patient', status: 'scheduled', notes: 'Routine prenatal checkup' }, { _id: 'demo-appointment-2', id: 'demo-appointment-2', title: 'Ultrasound review', start: new Date('2025-06-15T11:30:00'), end: new Date('2025-06-15T12:30:00'), with: 'Dr. Noah Williams', doctorName: 'Dr. Noah Williams', doctorId: 'demo-doctor-2', patientId: 'demo-patient', status: 'scheduled', notes: 'Review ultrasound results' }];
+const demoUser = MOCK_USER;
+const demoDoctors = MOCK_DOCTORS;
+const demoPrescriptions = MOCK_PRESCRIPTIONS;
+const demoAppointments = MOCK_APPOINTMENTS;
 
 const Home = () => {
     const [user, setUser] = useState(demoUser);

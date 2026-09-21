@@ -12,9 +12,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoCall } from 'react-icons/io5';
 
 import './Calendar.css';
+import { MOCK_APPOINTMENTS, MOCK_USER } from '../../data/mockData';
 
-const demoCalendarUser = { _id: 'demo-patient', role: 'patient', first_name: 'Elena', last_name: 'Carter', email: 'elena.carter@example.com' };
-const demoCalendarAppointments = [{ _id: 'demo-calendar-1', id: 'demo-calendar-1', title: 'Dr. Amelia Carter', start: new Date('2025-06-15T09:00:00'), end: new Date('2025-06-15T10:00:00'), doctorId: 'demo-doctor-1', patientId: 'demo-patient', doctorName: 'Dr. Amelia Carter', patientName: 'Elena Carter', status: 'scheduled', notes: 'Prenatal checkup', with: 'Dr. Amelia Carter' }, { _id: 'demo-calendar-2', id: 'demo-calendar-2', title: 'Dr. Noah Williams', start: new Date('2025-06-16T11:30:00'), end: new Date('2025-06-16T12:30:00'), doctorId: 'demo-doctor-2', patientId: 'demo-patient', doctorName: 'Dr. Noah Williams', patientName: 'Elena Carter', status: 'scheduled', notes: 'Ultrasound review', with: 'Dr. Noah Williams' }];
+const demoCalendarUser = MOCK_USER;
+const demoCalendarAppointments = MOCK_APPOINTMENTS;
 
 
 // Function to get user name

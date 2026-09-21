@@ -4,9 +4,10 @@ import { MdWatch } from 'react-icons/md';
 import { AiFillHeart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { MOCK_DEVICES, MOCK_USER } from '../../data/mockData';
 
-const demoDeviceUser = { _id: 'demo-patient', role: 'patient', first_name: 'Elena', last_name: 'Carter', email: 'elena.carter@example.com' };
-const demoDevices = [{ _id: 'demo-doppler', deviceId: 'DOPPLER-DEMO-01', type: 'doppler', isActive: true, patientId: 'demo-patient', connectedAt: '2025-06-10T09:00:00Z' }, { _id: 'demo-watch', deviceId: 'SMARTWATCH-DEMO-01', type: 'smartwatch', isActive: true, patientId: null }];
+const demoDeviceUser = MOCK_USER;
+const demoDevices = MOCK_DEVICES;
 
 const LinkDevice = () => {
   const [user, setUser] = useState(demoDeviceUser);

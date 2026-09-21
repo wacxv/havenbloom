@@ -26,6 +26,7 @@ ChartJS.register(
   Filler
 );
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
+import { MOCK_DAILY_SUMMARY, MOCK_FHR, MOCK_FHR_HISTORY, MOCK_HEART_RATE } from '../../data/mockData';
 
 const getUserFullName = (userData) => {
   if (!userData) return 'Unknown User';
@@ -64,24 +65,36 @@ const Analytics = () => {
   const [lastFetalHeartRateTimestamp, setLastFetalHeartRateTimestamp] = useState(null);
   
   // Chart data for live display
-  const [heartRateData, setHeartRateData] = useState(null);
-  const [fetalHeartRateData, setFetalHeartRateData] = useState(null);
+  const [heartRateData, setHeartRateData] = useState({
+    labels: Array(MOCK_HEART_RATE.length).fill(''),
+    datasets: [{ label: 'Heart Rate', data: MOCK_HEART_RATE, borderColor: '#D67AB1', backgroundColor: 'rgba(214, 122, 177, 0.2)', fill: true, tension: 0.4, borderWidth: 2 }]
+  });
+  const [fetalHeartRateData, setFetalHeartRateData] = useState({
+    labels: Array(MOCK_FHR.length).fill(''),
+    datasets: [{ label: 'Fetal Heart Rate', data: MOCK_FHR, borderColor: '#D67AB1', backgroundColor: 'rgba(214, 122, 177, 0.2)', fill: true, tension: 0.4, borderWidth: 2 }]
+  });
 
   // Summary data states (keep existing)
   const [minFetalBPM, setMinFetalBPM] = useState(null);
   const [maxFetalBPM, setMaxFetalBPM] = useState(null);
-  const [fetalHeartRateSummaryData, setFetalHeartRateSummaryData] = useState(null);
-  const [summaryMinFetalBPM, setSummaryMinFetalBPM] = useState(null);
-  const [summaryMaxFetalBPM, setSummaryMaxFetalBPM] = useState(null);
-  const [summaryAvgFetalBPM, setSummaryAvgFetalBPM] = useState(null);
+  const [fetalHeartRateSummaryData, setFetalHeartRateSummaryData] = useState({
+    labels: Array(MOCK_FHR.length).fill(''),
+    datasets: [{ label: 'Fetal Heart Rate (Summary)', data: MOCK_FHR, borderColor: '#D67AB1', backgroundColor: 'rgba(214, 122, 177, 0.15)', fill: true, tension: 0.4, borderWidth: 3 }]
+  });
+  const [summaryMinFetalBPM, setSummaryMinFetalBPM] = useState(MOCK_DAILY_SUMMARY.fetalHeartRate.min);
+  const [summaryMaxFetalBPM, setSummaryMaxFetalBPM] = useState(MOCK_DAILY_SUMMARY.fetalHeartRate.max);
+  const [summaryAvgFetalBPM, setSummaryAvgFetalBPM] = useState(MOCK_DAILY_SUMMARY.fetalHeartRate.average);
 
-  const [heartRateSummaryData, setHeartRateSummaryData] = useState(null);
-  const [summaryMinHeartRate, setSummaryMinHeartRate] = useState(null);
-  const [summaryMaxHeartRate, setSummaryMaxHeartRate] = useState(null);
-  const [summaryAvgHeartRate, setSummaryAvgHeartRate] = useState(null);
+  const [heartRateSummaryData, setHeartRateSummaryData] = useState({
+    labels: Array(MOCK_HEART_RATE.length).fill(''),
+    datasets: [{ label: 'Heart Rate (Summary)', data: MOCK_HEART_RATE, borderColor: '#D67AB1', backgroundColor: 'rgba(214, 122, 177, 0.15)', fill: true, tension: 0.4, borderWidth: 3 }]
+  });
+  const [summaryMinHeartRate, setSummaryMinHeartRate] = useState(MOCK_DAILY_SUMMARY.heartRate.min);
+  const [summaryMaxHeartRate, setSummaryMaxHeartRate] = useState(MOCK_DAILY_SUMMARY.heartRate.max);
+  const [summaryAvgHeartRate, setSummaryAvgHeartRate] = useState(MOCK_DAILY_SUMMARY.heartRate.average);
 
   const [fhrAnalyticsHistoryOpen, setFhrAnalyticsHistoryOpen] = useState(false);
-  const [fhrAnalyticsHistory, setFhrAnalyticsHistory] = useState([]);
+  const [fhrAnalyticsHistory, setFhrAnalyticsHistory] = useState(MOCK_FHR_HISTORY);
   const [fhrAnalyticsHistoryLoading, setFhrAnalyticsHistoryLoading] = useState(false);
 
   // Use dynamic API base URL

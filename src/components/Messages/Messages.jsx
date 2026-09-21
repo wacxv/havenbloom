@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import axios from 'axios'; // Make sure this is imported
 import './Messages.css';
+import { MOCK_MESSAGES, MOCK_RECEIVERS, MOCK_USER } from '../../data/mockData';
 
-const demoMessageUser = { user_id: 'demo-patient', role: 'patient', first_name: 'Elena', last_name: 'Carter', email: 'elena.carter@example.com' };
-const demoReceiver = { _id: 'demo-doctor-1', user_id: 'demo-doctor-1', full_name: 'Dr. Amelia Carter' };
-const demoMessages = [{ id: 'demo-message-1', type: 'received', content: 'Hello Elena. Your care plan is looking great this week.' }, { id: 'demo-message-2', type: 'sent', content: 'Thank you. I feel good and will see you at my appointment.' }];
+const demoMessageUser = MOCK_USER;
+const demoReceiver = MOCK_RECEIVERS[0];
+const demoMessages = MOCK_MESSAGES;
 
 const Messages = () => {
     // Existing state variables
@@ -17,7 +18,7 @@ const Messages = () => {
     const [token, setToken] = useState(null);
     const [messages, setMessages] = useState(demoMessages);
     const [currentRoom, setCurrentRoom] = useState('demo-patient_demo-doctor-1');
-    const [receivers, setReceivers] = useState([demoReceiver]);
+    const [receivers, setReceivers] = useState(MOCK_RECEIVERS);
     const [selectedReceiver, setSelectedReceiver] = useState(demoReceiver);
     
     // Add state for incoming call notification
@@ -635,7 +636,7 @@ const Messages = () => {
     }, [user?.user_id, userRole, token]); // Changed dependency to user_id
 
     useEffect(() => {
-        setReceivers([demoReceiver]);
+        setReceivers(MOCK_RECEIVERS);
         setSelectedReceiver(demoReceiver);
         // eslint-disable-next-line
     }, []);
