@@ -898,6 +898,88 @@
   min-height: 350px;
 }
 
+.metrics-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.metrics-card-header .section-title {
+    margin-bottom: 6px;
+}
+
+.metrics-source {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.metrics-live-status {
+    background: #f1f1f1;
+    border-radius: 999px;
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 8px;
+}
+
+.metrics-live-status.is-live {
+    background: #d9f7df;
+    color: #25733a;
+}
+
+.metric-reading {
+    background: #f8f4f8;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.metric-reading-primary {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.metric-label {
+    color: #777;
+    font-size: 13px;
+}
+
+.metric-reading strong {
+    color: #2F1847;
+    font-size: 30px;
+    line-height: 1.2;
+    margin-top: 8px;
+}
+
+.metric-unit {
+    color: #888;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.metric-reading-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 12px;
+}
+
+.metric-reading-grid .metric-reading strong {
+    font-size: 22px;
+}
+
+.metrics-helper {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 18px 0 0;
+}
+
 .metrics-card .section-title {
   margin-bottom: 0;
 }

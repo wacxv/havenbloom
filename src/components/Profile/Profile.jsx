@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Profile.css';
-import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = window.location.hostname === 'localhost' 
   ? 'https://havenbloom-api.onrender.com'  // Development
@@ -46,7 +45,6 @@ const Profile = () => {
         confirmPassword: ''
     });
     const [profile, setProfile] = useState(null);
-    const navigate = useNavigate();
 
     // Load user from localStorage
     useEffect(() => {
@@ -82,10 +80,8 @@ const Profile = () => {
             };
 
             setFormData(initialData);
-        } else {
-            navigate('/signin');
         }
-    }, [navigate]);
+    }, []);
 
     // ✅ Unified profile fetch based on user ID
     useEffect(() => {

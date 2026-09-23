@@ -24,15 +24,6 @@ const Header = () => {
         setIsDoctor(false);
     }, []);
     
-    const handleLogout = () => {
-        // Clear user data and token from localStorage
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-
-        // Redirect based on role
-        navigate('/home');
-    };
-    
     const handleNavigation = (path) => {
         navigate(path);
     };
@@ -47,7 +38,7 @@ const Header = () => {
             >
                 <div id='header-inner'>
                     <div id='header-container'>
-                        <div className='menu-item hover-effect logo-container'>
+                        <div className='menu-item hover-effect logo-container' onClick={() => handleNavigation('/home')}>
                             <div className='logo-full'>
                                 <span className='logo-h'>H</span>
                                 <span className='logo-rest'>avenbloom</span>
@@ -159,7 +150,7 @@ const Header = () => {
 
                         <div id='bottom-section'>
                             {!isAdmin && (
-                                <div className='menu-item hover-effect' onClick={() => handleNavigation('/profile')}>
+                                <div className='menu-item disabled-menu-item' aria-disabled='true'>
                                     <div className='icon-container'>
                                         <CgProfile className='nav-icon'/>
                                     </div>
@@ -169,7 +160,7 @@ const Header = () => {
                                 </div>
                             )}
                             
-                            <div className='menu-item hover-effect' onClick={handleLogout}>
+                            <div className='menu-item disabled-menu-item' aria-disabled='true'>
                                 <div className='icon-container'>
                                     <BiLogOut className='nav-icon'/>
                                 </div>

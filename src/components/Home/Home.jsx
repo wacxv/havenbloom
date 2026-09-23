@@ -237,24 +237,7 @@ const fetchEntityDetails = async (entityId, entityType) => {
         }
     }, []);
 
-    // Add this function for proper login redirection
-const redirectToLogin = () => {
-  // Clear user data
-  localStorage.removeItem('user');
-  localStorage.removeItem('token');
-  sessionStorage.removeItem('token');
-  sessionStorage.removeItem('user');
-  
-  // Set state to null
-  setUser(null);
-  setToken(null);
-  
-  // Redirect to login
-  console.log("Redirecting to login page due to authentication issues");
-  window.location.href = '/signin'; // Using window.location for a full reload
-};
-
-// Modified refreshToken function to handle login redirection
+    // Keep token refresh available for signed-in users without redirecting demo pages.
 const refreshToken = async () => {
   try {
     console.log("Attempting to refresh token...");
@@ -270,14 +253,12 @@ const refreshToken = async () => {
       localStorage.setItem('token', response.data.token);
       return response.data.token;
     } else {
-      console.error("No token in refresh response", response.data);
-      redirectToLogin();
+    console.error("No token in refresh response", response.data);
       return null;
     }
   } catch (error) {
     console.error("Failed to refresh token:", error);
-    // If refresh fails, we need to clear token and redirect to login
-    redirectToLogin();
+    // The page can continue showing its demo data when refresh is unavailable.
     return null;
   }
 };
@@ -288,7 +269,6 @@ const createAuthenticatedRequest = async (endpoint, method = 'GET', body = null)
   
   if (!currentToken) {
     console.error('No token available for request');
-    redirectToLogin();
     return Promise.reject(new Error('No authentication token available'));
   }
   
@@ -1023,14 +1003,14 @@ const customDayPropGetter = (date) => {
             </div>
             <div className="home-dash-doctor-info">
                 <div className="home-dash-doctor-name">
-                    {doctorNames[doctor._id] ? "Dr. " + doctorNames[doctor._id] : 'Loading...'}
+                    {doctorNames[doctor._id] ? "Dr. " + doctorNames[doctor._id] : doctor.full_name || getUserFullName(doctor)}
                 </div>
                 <div className="home-dash-doctor-specialization">
                     {doctor.specialization || doctor.specialty || "General Practice"}
                 </div>
             </div>
             <div className="home-dash-doctor-schedule">
-                {doctorSchedules[doctor._id] || "Fetching schedule..."}
+                {doctorSchedules[doctor._id] || doctor.schedule_info || formatDoctorSchedule(doctor)}
             </div>
         </div>
     );

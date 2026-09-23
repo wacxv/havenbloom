@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './LinkDevice.css';
 import { MdWatch } from 'react-icons/md';
 import { AiFillHeart } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { MOCK_DEVICES, MOCK_USER } from '../../data/mockData';
 
@@ -19,7 +18,11 @@ const LinkDevice = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [actionLoading, setActionLoading] = useState({}); // Track loading for individual devices
-  const navigate = useNavigate();
+  const [liveHeartRate, setLiveHeartRate] = useState(null);
+  const [bluetoothStatus, setBluetoothStatus] = useState('idle');
+  const [bluetoothDeviceName, setBluetoothDeviceName] = useState('');
+  const bluetoothDeviceRef = useRef(null);
+  const heartRateCharacteristicRef = useRef(null);
   // Use localhost for development
   const API_BASE_URL = 'https://havenbloom-api.onrender.com';
 
@@ -44,9 +47,8 @@ const LinkDevice = () => {
       setToken(null);
     } catch (err) {
       console.error("Error loading user data:", err);
-      navigate('/signin');
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -126,10 +128,93 @@ const LinkDevice = () => {
     }
   };
 
+  const handleHeartRateMeasurement = (event) => {
+    const value = event.target.value;
+    if (!value || value.byteLength < 2) return;
+
+    const flags = value.getUint8(0);
+    const heartRate = flags & 0x01
+      ? value.getUint16(1, true)
+      : value.getUint8(1);
+
+    setLiveHeartRate(heartRate);
+  };
+
+  const handleBluetoothDisconnected = () => {
+    setBluetoothStatus('idle');
+    setBluetoothDeviceName('');
+    setLiveHeartRate(null);
+    bluetoothDeviceRef.current = null;
+    heartRateCharacteristicRef.current = null;
+  };
+
+  const connectBluetoothHeartRate = async () => {
+    if (!navigator.bluetooth) {
+      setBluetoothStatus('unsupported');
+      setError('Bluetooth is not available in this browser. Use Chrome or Edge over HTTPS to connect a smartwatch.');
+      return false;
+    }
+
+    setBluetoothStatus('searching');
+    setError(null);
+
+    try {
+      const device = await navigator.bluetooth.requestDevice({
+        filters: [{ services: ['heart_rate'] }],
+        optionalServices: ['battery_service', 'device_information']
+      });
+
+      device.addEventListener('gattserverdisconnected', handleBluetoothDisconnected);
+      const server = await device.gatt.connect();
+      const heartRateService = await server.getPrimaryService('heart_rate');
+      const characteristic = await heartRateService.getCharacteristic('heart_rate_measurement');
+
+      characteristic.addEventListener('characteristicvaluechanged', handleHeartRateMeasurement);
+      await characteristic.startNotifications();
+
+      bluetoothDeviceRef.current = device;
+      heartRateCharacteristicRef.current = characteristic;
+      setBluetoothDeviceName(device.name || 'Bluetooth smartwatch');
+      setBluetoothStatus('connected');
+      return true;
+    } catch (bluetoothError) {
+      if (bluetoothError.name === 'NotFoundError') {
+        setBluetoothStatus('idle');
+        return false;
+      }
+
+      console.error('Bluetooth heart-rate connection failed:', bluetoothError);
+      setBluetoothStatus('error');
+      setError('The smartwatch connected, but its Heart Rate Data Broadcast could not be read.');
+      return false;
+    }
+  };
+
+  const disconnectBluetoothHeartRate = () => {
+    const characteristic = heartRateCharacteristicRef.current;
+    if (characteristic) {
+      characteristic.removeEventListener('characteristicvaluechanged', handleHeartRateMeasurement);
+    }
+
+    if (bluetoothDeviceRef.current?.gatt?.connected) {
+      bluetoothDeviceRef.current.gatt.disconnect();
+    }
+
+    handleBluetoothDisconnected();
+  };
+
+  useEffect(() => () => disconnectBluetoothHeartRate(), []);
+
   // Connect device to current patient
   const handleConnectDevice = async (deviceId) => {
+    const device = devices.find(candidate => candidate.deviceId === deviceId);
+    if (device?.type === 'smartwatch') {
+      const bluetoothConnected = await connectBluetoothHeartRate();
+      if (!bluetoothConnected) return;
+    }
+
     if (!token) {
-      setDevices(prev => prev.map(device => device.deviceId === deviceId ? { ...device, patientId: user._id } : device));
+      setDevices(prev => prev.map(candidate => candidate.deviceId === deviceId ? { ...candidate, patientId: user._id } : candidate));
       return;
     }
 
@@ -164,8 +249,13 @@ const LinkDevice = () => {
 
   // Disconnect device from current patient
   const handleDisconnectDevice = async (deviceId) => {
+    const device = devices.find(candidate => candidate.deviceId === deviceId);
+    if (device?.type === 'smartwatch') {
+      disconnectBluetoothHeartRate();
+    }
+
     if (!token) {
-      setDevices(prev => prev.map(device => device.deviceId === deviceId ? { ...device, patientId: null } : device));
+      setDevices(prev => prev.map(candidate => candidate.deviceId === deviceId ? { ...candidate, patientId: null } : candidate));
       return;
     }
 
@@ -349,6 +439,7 @@ const LinkDevice = () => {
               title="View Profile"
             />
           </div>
+
         </div>
 
         <div className="link-device-content-grid">
@@ -471,6 +562,37 @@ const LinkDevice = () => {
                     ))
                   )}
                 </>
+              )}
+            </div>
+          </div>
+
+          <div className="metrics-col">
+            <div className="metrics-card">
+              <div className="metrics-card-header">
+                <div>
+                  <h2 className="section-title">Health Metrics</h2>
+                  <p className="metrics-source">
+                    {bluetoothStatus === 'connected'
+                      ? `Live from ${bluetoothDeviceName}`
+                      : 'Demo values until a smartwatch is connected'}
+                  </p>
+                </div>
+                <span className={`metrics-live-status ${bluetoothStatus === 'connected' ? 'is-live' : ''}`}>
+                  {bluetoothStatus === 'connected' ? 'LIVE' : 'DEMO'}
+                </span>
+              </div>
+
+              <div className="metric-reading metric-reading-primary">
+                <span className="metric-label">Heart rate</span>
+                <strong>{liveHeartRate ?? 0}</strong>
+                <span className="metric-unit">BPM</span>
+                <span className="metric-unit">(you can connect a smartwatch to see live data, the smartwatch should have a HR Data Broadcast feature in order to work with this feature)</span>
+              </div>
+              {bluetoothStatus === 'unsupported' && (
+                <p className="metrics-helper">Bluetooth is unavailable here, so demo values are being shown.</p>
+              )}
+              {bluetoothStatus === 'searching' && (
+                <p className="metrics-helper">Choose a nearby smartwatch that supports Heart Rate Data Broadcast.</p>
               )}
             </div>
           </div>

@@ -112,7 +112,6 @@ const Messages = () => {
             try {
                 const userData = localStorage.getItem('user');
                 if (!userData) {
-                    navigate('/signin');
                     return;
                 }
                 
@@ -154,7 +153,6 @@ const Messages = () => {
 
             } catch (error) {
                 console.error('Initialization error:', error);
-                navigate('/signin');
             }
         };
         initializeUser();

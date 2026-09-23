@@ -113,11 +113,10 @@ const Analytics = () => {
       setToken(null);
     } catch (err) {
       console.error("Error loading user data:", err);
-      navigate('/signin');
     }
 
     generatePlaceholderData();
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
