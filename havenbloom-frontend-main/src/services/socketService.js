@@ -5,7 +5,7 @@ let socket = null;
 export const getSocket = async (token) => {
   if (!socket) {
     try {
-      socket = io('https://havenbloom-api.onrender.com', {
+      socket = io('http://localhost:3000', {
         auth: { token }
       });
       

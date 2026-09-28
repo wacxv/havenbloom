@@ -120,7 +120,7 @@ const Messages = () => {
                 const endpoint = role === 'doctor' ? '/api/doctors' : '/api/patients';
                 const authToken = localStorage.getItem('token');
                 
-                const response = await fetch(`https://havenbloom-api.onrender.com${endpoint}`, {
+                const response = await fetch(`http://localhost:3000${endpoint}`, {
                     headers: {
                         'Authorization': `Bearer ${authToken}`,
                         'Content-Type': 'application/json'
@@ -173,7 +173,7 @@ const Messages = () => {
     }, [currentUserId]);
 
     const getToken = async () => {
-        const response = await fetch('https://havenbloom-api.onrender.com/api/messages/test-token');
+        const response = await fetch('http://localhost:3000/api/messages/test-token');
         const data = await response.json();
         setToken(data.token);
         return data.token;
@@ -193,11 +193,11 @@ const Messages = () => {
             let targetField;
             let targetType;
             if (userRole === 'doctor') {
-                assignmentsUrl = `https://havenbloom-api.onrender.com/api/assignments/doctor/${currentUserId}`;
+                assignmentsUrl = `http://localhost:3000/api/assignments/doctor/${currentUserId}`;
                 targetField = 'patient_id';
                 targetType = 'patients';
             } else {
-                assignmentsUrl = `https://havenbloom-api.onrender.com/api/assignments/patient/${currentUserId}`;
+                assignmentsUrl = `http://localhost:3000/api/assignments/patient/${currentUserId}`;
                 targetField = 'doctor_id';
                 targetType = 'doctors';
             }
@@ -232,7 +232,7 @@ const Messages = () => {
                 .filter(Boolean);
 
             // Fetch all users of the target type
-            const allUsersUrl = `https://havenbloom-api.onrender.com/api/${targetType}`;
+            const allUsersUrl = `http://localhost:3000/api/${targetType}`;
 
             const allUsersResponse = await fetch(allUsersUrl, {
                 headers: {
@@ -280,7 +280,7 @@ const Messages = () => {
             // Fetch all users of this type to get MongoDB _id for assignments API
             const endpoint = role === 'doctor' ? '/api/doctors' : '/api/patients';
             const authToken = localStorage.getItem('token');
-            const response = await fetch(`https://havenbloom-api.onrender.com${endpoint}`, {
+            const response = await fetch(`http://localhost:3000${endpoint}`, {
                 headers: {
                     'Authorization': `Bearer ${authToken}`,
                     'Content-Type': 'application/json'
@@ -294,11 +294,11 @@ const Messages = () => {
             // Now fetch assignments for this user
             let assignmentsUrl, targetField, targetType;
             if (role === 'doctor') {
-                assignmentsUrl = `https://havenbloom-api.onrender.com/api/assignments/doctor/${foundUser._id}`;
+                assignmentsUrl = `http://localhost:3000/api/assignments/doctor/${foundUser._id}`;
                 targetField = 'patient_id';
                 targetType = 'patients';
             } else {
-                assignmentsUrl = `https://havenbloom-api.onrender.com/api/assignments/patient/${foundUser._id}`;
+                assignmentsUrl = `http://localhost:3000/api/assignments/patient/${foundUser._id}`;
                 targetField = 'doctor_id';
                 targetType = 'doctors';
             }
@@ -324,7 +324,7 @@ const Messages = () => {
                 .filter(Boolean);
 
             // Fetch all users of the target type
-            const allUsersUrl = `https://havenbloom-api.onrender.com/api/${targetType}`;
+            const allUsersUrl = `http://localhost:3000/api/${targetType}`;
             const allUsersResponse = await fetch(allUsersUrl, {
                 headers: {
                     'Authorization': `Bearer ${authToken}`,
@@ -378,7 +378,7 @@ const Messages = () => {
                 socket.disconnect();
             }
 
-            const newSocket = io('https://havenbloom-api.onrender.com', {
+            const newSocket = io('http://localhost:3000', {
                 auth: { token: newToken }
             });
 
@@ -413,7 +413,7 @@ const Messages = () => {
         try {
             const newToken = await getToken();
             const response = await fetch(
-                `https://havenbloom-api.onrender.com/api/messages?sender_id=${currentUserId}&receiver_id=${receiverUserId}`,
+                `http://localhost:3000/api/messages?sender_id=${currentUserId}&receiver_id=${receiverUserId}`,
                 {
                     headers: {
                         'Authorization': `Bearer ${newToken}`,
@@ -456,7 +456,7 @@ const Messages = () => {
         };
 
         try {
-            const response = await fetch('https://havenbloom-api.onrender.com/api/messages/create', {
+            const response = await fetch('http://localhost:3000/api/messages/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -594,7 +594,7 @@ const Messages = () => {
                     ? `/api/doctors/user/${user.user_id}`  // Changed endpoint format
                     : `/api/patients/user/${user.user_id}`; // Changed endpoint format
                     
-                const response = await axios.get(`https://havenbloom-api.onrender.com${endpoint}`, {
+                const response = await axios.get(`http://localhost:3000${endpoint}`, {
                     headers: { 
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'

@@ -48,7 +48,7 @@ const ForgotPassword = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('https://havenbloom-api.onrender.com/api/otp/send-password-reset-otp', {
+            const response = await fetch('http://localhost:3000/api/otp/send-password-reset-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const ForgotPassword = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('https://havenbloom-api.onrender.com/api/otp/verify-otp', {
+            const response = await fetch('http://localhost:3000/api/otp/verify-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ const ForgotPassword = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('https://havenbloom-api.onrender.com/api/otp/reset-password', {
+            const response = await fetch('http://localhost:3000/api/otp/reset-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ const ForgotPassword = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('https://havenbloom-api.onrender.com/api/otp/send-password-reset-otp', {
+            const response = await fetch('http://localhost:3000/api/otp/send-password-reset-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

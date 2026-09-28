@@ -112,7 +112,7 @@ const Calendar = () => {
                     ? `/api/doctors/user/${user._id}`
                     : `/api/patients/user/${user._id}`;
 
-                const response = await axios.get(`https://havenbloom-api.onrender.com${endpoint}`, {
+                const response = await axios.get(`http://localhost:3000${endpoint}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 
@@ -139,7 +139,7 @@ const Calendar = () => {
             
         console.log(`Fetching appointments from: ${endpoint}`);
 
-        axios.get(`https://havenbloom-api.onrender.com${endpoint}`, {
+        axios.get(`http://localhost:3000${endpoint}`, {
             headers: { 'Authorization': `Bearer ${token}` }
         })
             .then(response => {
@@ -200,14 +200,14 @@ const Calendar = () => {
             if (userRole === 'patient') {
                 // Fetch doctors only assigned to this patient
                 const response = await axios.get(
-                    `https://havenbloom-api.onrender.com/api/assignments/patient/${user._id}`,
+                    `http://localhost:3000/api/assignments/patient/${user._id}`,
                     { headers: { 'Authorization': `Bearer ${token}` } }
                 );
                 setDoctors(response.data.map(a => a.doctor_id)); // each assignment has doctor_id
             } else if (userRole === 'doctor') {
                 // Fetch patients only assigned to this doctor
                 const response = await axios.get(
-                    `https://havenbloom-api.onrender.com/api/assignments/doctor/${user._id}`,
+                    `http://localhost:3000/api/assignments/doctor/${user._id}`,
                     { headers: { 'Authorization': `Bearer ${token}` } }
                 );
                 setPatients(response.data.map(a => a.patient_id)); // each assignment has patient_id
@@ -270,7 +270,7 @@ const Calendar = () => {
             
             // Send the request
             const response = await axios.post(
-                'https://havenbloom-api.onrender.com/api/appointments/create',
+                'http://localhost:3000/api/appointments/create',
                 appointmentData,
                 { headers: { 'Authorization': `Bearer ${token}` } }
             );
@@ -335,7 +335,7 @@ const Calendar = () => {
         try {
             // Update the appointment status in the API
             const response = await axios.patch(
-                `https://havenbloom-api.onrender.com/api/appointments/${appointment._id}`,
+                `http://localhost:3000/api/appointments/${appointment._id}`,
                 { 
                     status: newStatus,
                     appointment_id: appointment._id

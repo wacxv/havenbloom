@@ -71,7 +71,7 @@ const CreateDoctor = () => {
       };
       
       // Use axios instead of fetch for more consistent error handling
-      const response = await axios.post('https://havenbloom-api.onrender.com/api/users/register', doctorData, {
+      const response = await axios.post('http://localhost:3000/api/users/register', doctorData, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

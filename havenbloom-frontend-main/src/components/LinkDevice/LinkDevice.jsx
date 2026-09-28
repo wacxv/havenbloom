@@ -17,7 +17,7 @@ const LinkDevice = () => {
   const [actionLoading, setActionLoading] = useState({}); // Track loading for individual devices
   const navigate = useNavigate();
   // Use localhost for development
-  const API_BASE_URL = 'https://havenbloom-api.onrender.com';
+  const API_BASE_URL = 'http://localhost:3000';
 
   const getUserFullName = (userData) => {
     if (!userData) return 'Unknown User';

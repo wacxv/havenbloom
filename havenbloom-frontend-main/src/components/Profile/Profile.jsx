@@ -4,8 +4,8 @@ import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = window.location.hostname === 'localhost' 
-  ? 'https://havenbloom-api.onrender.com'  // Development
-  : 'https://havenbloom-api.onrender.com';  // Production
+  ? 'http://localhost:3000'  // Development
+  : 'http://localhost:3000';  // Production
 
 const Profile = () => {
     const [user, setUser] = useState(null);

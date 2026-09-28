@@ -206,7 +206,7 @@ const AssignPatient = () => {
     
     // If full_name exists, just use that
     if (doctor.full_name) {
-      return `Dr. ${doctor.full_name}`;
+      return `${doctor.full_name}`;
     }
     
     // Otherwise construct from first/last name

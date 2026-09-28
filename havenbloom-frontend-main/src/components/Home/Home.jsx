@@ -262,7 +262,7 @@ const refreshToken = async () => {
   try {
     console.log("Attempting to refresh token...");
     // Make request to refresh token endpoint - changed to localhost
-    const response = await axios.post('https://havenbloom-api.onrender.com/api/auth/refresh-token', {}, {
+    const response = await axios.post('http://localhost:3000/api/auth/refresh-token', {}, {
       withCredentials: true // Important for cookies if your refresh mechanism uses them
     });
     
@@ -296,7 +296,7 @@ const createAuthenticatedRequest = async (endpoint, method = 'GET', body = null)
   }
   
   // Ensure the API base URL is localhost - CHANGED THIS
-  const baseUrl = 'https://havenbloom-api.onrender.com';
+  const baseUrl = 'http://localhost:3000';
   
   // Handle endpoint formatting
   let fullUrl = endpoint.startsWith('http') ? endpoint : 
@@ -821,7 +821,7 @@ const customDayPropGetter = (date) => {
     // Add a function to get a token
     const getToken = async () => {
         try {
-            const response = await fetch('https://havenbloom-api.onrender.com/api/messages/test-token');
+            const response = await fetch('http://localhost:3000/api/messages/test-token');
             const data = await response.json();
             setToken(data.token);
             return data.token;
@@ -844,7 +844,7 @@ const customDayPropGetter = (date) => {
                     }
                     
                     // Changed socket URL to localhost
-                    const newSocket = io('https://havenbloom-api.onrender.com', {
+                    const newSocket = io('http://localhost:3000', {
                         auth: { token: newToken }
                     });
                     

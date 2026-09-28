@@ -130,7 +130,7 @@ const SignUp = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('https://havenbloom-api.onrender.com/api/users/register', {
+            const response = await fetch('http://localhost:3000/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
