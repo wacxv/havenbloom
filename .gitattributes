@@ -1,5 +1,8 @@
 *.tcl linguist-vendored
 
-GUI/** linguist-vendored
+node_modules/** linguist-vendored
+package-lock.json linguist-vendored
+yarn.lock linguist-vendored
 
-GUI/** linguist-language=Python
+GUI/*.py linguist-detectable=true
+GUI/*.py linguist-language=Python
