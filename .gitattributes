@@ -1,0 +1,8 @@
+# If you have an explicit folder or extension causing the issue, ignore it from language statistics:
+*.tcl linguist-detectable=false
+
+# If the misclassification is originating inside a specific folder (like GUI):
+GUI/** linguist-detectable=false
+
+# If you want to force specific files to be treated as Python instead:
+GUI/*.tcl linguist-language=Python
